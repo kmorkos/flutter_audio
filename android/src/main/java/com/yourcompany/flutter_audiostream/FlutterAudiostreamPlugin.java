@@ -76,8 +76,8 @@ public class FlutterAudiostreamPlugin implements MethodCallHandler {
 
       try {
         mediaPlayer.prepare();
-        Log.d("AUDIO", "media prepare ERROR");
       } catch (IOException e) {
+        Log.d("AUDIO", "media prepare ERROR");
         e.printStackTrace();
       }
     }
@@ -89,6 +89,7 @@ public class FlutterAudiostreamPlugin implements MethodCallHandler {
     mediaPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener(){
       @Override
       public void onCompletion(MediaPlayer mp) {
+        stop();
         channel.invokeMethod("audio.onComplete", true);
       }
     });
@@ -107,17 +108,20 @@ public class FlutterAudiostreamPlugin implements MethodCallHandler {
         if( ! mediaPlayer.isPlaying() ){
           handler.removeCallbacks(sendData);
         }
-        int time = mediaPlayer.getCurrentPosition()/1000;
+        int time = mediaPlayer.getCurrentPosition();
         channel.invokeMethod("audio.onCurrentPosition", time);
 
-
-        handler.postDelayed(this, 1000);
+        handler.postDelayed(this, 200);
       }
       catch (Exception e) {
         e.printStackTrace();
       }
     }
   };
+
+
+
+
   /*private void watchProgress() {
 
     TimerTask doAsynchronousTask = new TimerTask() {

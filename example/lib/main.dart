@@ -45,30 +45,53 @@ class _AudioAppState extends State<AudioApp> {
   @override
   Widget build(BuildContext context) {
     return new Center(
-      child: new Material(
-        elevation: 2,
-        color: Colors.grey[200],
-        child: new Container(
-          padding: new EdgeInsets.all(16.0),
-          child: new Row(mainAxisSize: MainAxisSize.min, children: [
-            new IconButton(
-              onPressed: isPlaying ? null : () => play(),
-              iconSize: 64.0,
-              icon: new Icon(Icons.play_arrow),
-              color: Colors.cyan),
-            new IconButton(
-              onPressed: isPlaying ? () => pause() : null,
-              iconSize: 64.0,
-              icon: new Icon(Icons.pause),
-              color: Colors.cyan),
-            new IconButton(
-              onPressed: isPlaying || isPaused ? () => stop() : null,
-              iconSize: 64.0,
-              icon: new Icon(Icons.stop),
-              color: Colors.cyan),
-            new Text("${positionText ?? ''}/${durationText ?? ''}",
-              style: new TextStyle(fontSize: 24.0))
-          ]))));
+        child: new Material(
+            elevation: 2,
+            color: Colors.grey[200],
+            child: new Container(
+                padding: new EdgeInsets.all(16.0),
+                child: new Column(mainAxisSize: MainAxisSize.min, children: [
+                  new Row(mainAxisSize: MainAxisSize.min, children: [
+                    new IconButton(
+                        onPressed: isPlaying ? null : () => play(),
+                        iconSize: 64.0,
+                        icon: new Icon(Icons.play_arrow),
+                        color: Colors.cyan),
+                    new IconButton(
+                        onPressed: isPlaying ? () => pause() : null,
+                        iconSize: 64.0,
+                        icon: new Icon(Icons.pause),
+                        color: Colors.cyan),
+                    new IconButton(
+                        onPressed: isPlaying || isPaused ? () => stop() : null,
+                        iconSize: 64.0,
+                        icon: new Icon(Icons.stop),
+                        color: Colors.cyan),
+                  ]),
+                  new Row(mainAxisSize: MainAxisSize.min, children: [
+                    new Padding(
+                        padding: new EdgeInsets.all(12.0),
+                        child: new Stack(children: [
+                          new CircularProgressIndicator(
+                              value: 1.0,
+                              valueColor:
+                                  new AlwaysStoppedAnimation(Colors.grey[300])),
+                          new CircularProgressIndicator(
+                            value: position != null
+                                ? position.inMilliseconds /
+                                    duration.inMilliseconds
+                                : 0.0,
+                            valueColor:
+                                new AlwaysStoppedAnimation(Colors.cyan),
+                          ),
+                        ])),
+                    new Text(
+                        position != null
+                            ? "${positionText ?? ''} / ${durationText ?? ''}"
+                            : '',
+                        style: new TextStyle(fontSize: 24.0))
+                  ])
+                ]))));
   }
 
   void play() {
@@ -107,11 +130,14 @@ class _AudioAppState extends State<AudioApp> {
 
       case 'audio.onComplete':
         onComplete();
+        setState(() {
+          position = duration;
+        });
         break;
 
       case 'audio.onCurrentPosition':
         setState(() {
-          position = new Duration(seconds: methodCall.arguments);
+          position = new Duration(milliseconds: methodCall.arguments);
         });
         break;
 
@@ -119,7 +145,6 @@ class _AudioAppState extends State<AudioApp> {
         throw new MissingPluginException();
     }
   }
-
 
   void onComplete() {
     setState(() => playerState = PlayerState.stopped);
