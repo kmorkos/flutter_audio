@@ -2,7 +2,7 @@
 FLUTTER_ROOT=/Users/rxlabz/dev/tools/flutter
 FLUTTER_APPLICATION_PATH=/Users/rxlabz/dev/labz/flutter/noob-labz/flutter_audiostream
 FLUTTER_TARGET=lib/main.dart
-FLUTTER_BUILD_MODE=debug
+FLUTTER_BUILD_MODE=release
 FLUTTER_BUILD_DIR=build
 SYMROOT=${SOURCE_ROOT}/../build/ios
-FLUTTER_FRAMEWORK_DIR=/Users/rxlabz/dev/tools/flutter/bin/cache/artifacts/engine/ios
+FLUTTER_FRAMEWORK_DIR=/Users/rxlabz/dev/tools/flutter/bin/cache/artifacts/engine/ios-release

@@ -1,0 +1,6 @@
+framework module flutter_audiostream {
+  umbrella header "flutter_audiostream-umbrella.h"
+
+  export *
+  module * { export * }
+}

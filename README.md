@@ -12,6 +12,11 @@ Features :
   - [x] onCurrentPosition
   
 - [ ] iOS
+  - [ ] play (remote file)
+  - [ ] stop
+  - [ ] pause
+  - [ ] onComplete
+  - [ ] onCurrentPosition
 
 ![screenshot](img/audioplayer.png)
 
