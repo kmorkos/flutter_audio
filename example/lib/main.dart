@@ -33,7 +33,7 @@ class _AudioAppState extends State<AudioApp> {
   @override
   void initState() {
     super.initState();
-    FlutterAudiostream.setHandler(_handleMediaInfoInvocation);
+    FlutterAudiostream.setPlaformCallsHandler(_handleAudioPlatformCalls);
   }
 
   @override
@@ -81,8 +81,7 @@ class _AudioAppState extends State<AudioApp> {
                                 ? position.inMilliseconds /
                                     duration.inMilliseconds
                                 : 0.0,
-                            valueColor:
-                                new AlwaysStoppedAnimation(Colors.cyan),
+                            valueColor: new AlwaysStoppedAnimation(Colors.cyan),
                           ),
                         ])),
                     new Text(
@@ -118,7 +117,7 @@ class _AudioAppState extends State<AudioApp> {
     });
   }
 
-  Future<dynamic> _handleMediaInfoInvocation(MethodCall methodCall) async {
+  Future<dynamic> _handleAudioPlatformCalls(MethodCall methodCall) async {
     final String method = methodCall.method;
 
     switch (method) {

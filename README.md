@@ -1,6 +1,11 @@
-# flutter_audiostream
+# flutter_audio
 
-A new flutter plugin project.
+Flutter audio plugin POC. 
+ 
+- [ ] play
+- [ ] stop
+- [ ] pause
+- [ ] pause
 
 ## Getting Started
 

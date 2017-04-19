@@ -18,7 +18,7 @@ class FlutterAudiostream {
   static Future<String> stop() =>
     _channel.invokeMethod('stop');
 
-  static void setHandler(handler) {
+  static void setPlaformCallsHandler(handler) {
     _channel.setMethodCallHandler(handler);
   }
 }
