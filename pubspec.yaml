@@ -1,0 +1,11 @@
+name: flutter_audiostream
+description: A new flutter plugin project.
+
+flutter:
+  plugin:
+    androidPackage: com.yourcompany.flutter_audiostream
+    pluginClass: FlutterAudiostreamPlugin
+
+dependencies:
+  flutter:
+    sdk: flutter
