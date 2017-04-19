@@ -4,11 +4,14 @@ Flutter audio plugin POC.
  
 Features :
  
-- [x] play (remote file)
-- [x] stop
-- [x] pause
-- [x] onComplete
-- [x] onCurrentPosition
+- [x] Android
+  - [x] play (remote file)
+  - [x] stop
+  - [x] pause
+  - [x] onComplete
+  - [x] onCurrentPosition
+  
+- [ ] iOS
 
 ![screenshot](img/audioplayer.png)
 

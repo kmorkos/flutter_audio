@@ -1,6 +1,6 @@
-# flutter_audio example
+# flutter_audiostream example
 
-Demonstrates how to use the flutter_audio plugin.
+Demonstrates how to use the flutter_audiostream plugin.
 
 ## Getting Started
 
