@@ -2,10 +2,15 @@
 
 Flutter audio plugin POC. 
  
-- [ ] play
-- [ ] stop
-- [ ] pause
-- [ ] pause
+Features :
+ 
+- [x] play (remote file)
+- [x] stop
+- [x] pause
+- [x] onComplete
+- [x] onCurrentPosition
+
+![screenshot](img/audioplayer.png)
 
 ## Getting Started
 
