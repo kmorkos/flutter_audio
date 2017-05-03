@@ -57,6 +57,8 @@
       <excludeFolder url="file://$MODULE_DIR$/example/android/gradle/wrapper/packages" />
       <excludeFolder url="file://$MODULE_DIR$/example/android/packages" />
       <excludeFolder url="file://$MODULE_DIR$/example/build" />
+      <excludeFolder url="file://$MODULE_DIR$/example/ios/.idea/packages" />
+      <excludeFolder url="file://$MODULE_DIR$/example/ios/.idea/runConfigurations/packages" />
       <excludeFolder url="file://$MODULE_DIR$/example/ios/Flutter/App.framework/packages" />
       <excludeFolder url="file://$MODULE_DIR$/example/ios/Flutter/Flutter.framework/Headers/packages" />
       <excludeFolder url="file://$MODULE_DIR$/example/ios/Flutter/Flutter.framework/Modules/packages" />
@@ -85,6 +87,7 @@
       <excludeFolder url="file://$MODULE_DIR$/example/ios/Runner.xcworkspace/packages" />
       <excludeFolder url="file://$MODULE_DIR$/example/ios/Runner.xcworkspace/xcuserdata/packages" />
       <excludeFolder url="file://$MODULE_DIR$/example/ios/Runner.xcworkspace/xcuserdata/rxlabz.xcuserdatad/packages" />
+      <excludeFolder url="file://$MODULE_DIR$/example/ios/Runner.xcworkspace/xcuserdata/rxlabz.xcuserdatad/xcschemes/packages" />
       <excludeFolder url="file://$MODULE_DIR$/example/ios/Runner/Assets.xcassets/AppIcon.appiconset/packages" />
       <excludeFolder url="file://$MODULE_DIR$/example/ios/Runner/Assets.xcassets/packages" />
       <excludeFolder url="file://$MODULE_DIR$/example/ios/Runner/Base.lproj/packages" />

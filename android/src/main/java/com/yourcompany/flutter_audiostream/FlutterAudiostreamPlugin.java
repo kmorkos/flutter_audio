@@ -28,7 +28,7 @@ public class FlutterAudiostreamPlugin implements MethodCallHandler {
 
   private FlutterAudiostreamPlugin(FlutterActivity activity) {
     this.activity = activity;
-    channel = new MethodChannel(activity.getFlutterView(), "flutter_audio");
+    channel = new MethodChannel(activity.getFlutterView(), "flutter.rxla.bz/audio");
     channel.setMethodCallHandler(this);
   }
 

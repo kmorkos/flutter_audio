@@ -11,14 +11,26 @@ Features :
   - [x] onComplete
   - [x] onCurrentPosition
   
-- [ ] iOS
-  - [ ] play (remote file)
-  - [ ] stop
-  - [ ] pause
-  - [ ] onComplete
-  - [ ] onCurrentPosition
+- [x] iOS
+  - [x] play (remote file)
+  - [x] stop
+  - [x] pause
+  - [x] onComplete
+  - [x] onCurrentPosition
 
 ![screenshot](img/audioplayer.png)
+
+## :warning: Http url
+
+If you want to allow file from non https server you need to add this to your info.plist
+
+```xml
+<key>NSAppTransportSecurity</key>
+<dict>
+    <key>NSAllowsArbitraryLoads</key>
+    <true/>
+</dict>
+```
 
 ## Getting Started
 

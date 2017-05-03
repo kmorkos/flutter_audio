@@ -10,7 +10,6 @@
 #endif
 #endif
 
-#import "FlutterAudiostreamPlugin.h"
 
 FOUNDATION_EXPORT double flutter_audiostreamVersionNumber;
 FOUNDATION_EXPORT const unsigned char flutter_audiostreamVersionString[];

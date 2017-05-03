@@ -1,9 +1,11 @@
 import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_audiostream/flutter_audiostream.dart';
 
 const kUrl = "http://www.rxlabz.com/labz/audio2.mp3";
+const kUrl2 = "http://www.rxlabz.com/labz/audio.mp3";
 
 void main() {
   runApp(new MaterialApp(home: new Scaffold(body: new AudioApp())));
@@ -20,26 +22,29 @@ class _AudioAppState extends State<AudioApp> {
   Duration duration;
   Duration position;
 
+  FlutterAudiostream audioPlugin;
+
   PlayerState playerState = PlayerState.stopped;
 
   get isPlaying => playerState == PlayerState.playing;
   get isPaused => playerState == PlayerState.paused;
 
   get durationText =>
-      duration != null ? duration.toString().split('.').first : null;
+      duration != null ? duration.toString().split('.').first : '';
   get positionText =>
-      position != null ? position.toString().split('.').first : null;
+      position != null ? position.toString().split('.').first : '';
 
   @override
   void initState() {
     super.initState();
-    FlutterAudiostream.setPlaformCallsHandler(_handleAudioPlatformCalls);
+    audioPlugin = new FlutterAudiostream();
+    audioPlugin.setPlaformCallsHandler(_handleAudioPlatformCalls);
   }
 
   @override
   void dispose() {
     super.dispose();
-    FlutterAudiostream.stop();
+    audioPlugin.stop();
   }
 
   @override
@@ -77,7 +82,7 @@ class _AudioAppState extends State<AudioApp> {
                               valueColor:
                                   new AlwaysStoppedAnimation(Colors.grey[300])),
                           new CircularProgressIndicator(
-                            value: position != null
+                            value: position != null && position.inMilliseconds > 0
                                 ? position.inMilliseconds /
                                     duration.inMilliseconds
                                 : 0.0,
@@ -87,28 +92,28 @@ class _AudioAppState extends State<AudioApp> {
                     new Text(
                         position != null
                             ? "${positionText ?? ''} / ${durationText ?? ''}"
-                            : '',
+                            : duration != null ? durationText : '',
                         style: new TextStyle(fontSize: 24.0))
                   ])
                 ]))));
   }
 
   void play() {
-    FlutterAudiostream.play(kUrl).then((String res) {
+    audioPlugin.play(kUrl2).then((String res) {
       print('audio.play -> $res');
       setState(() => playerState = PlayerState.playing);
     });
   }
 
   void pause() {
-    FlutterAudiostream.pause().then((String res) {
+    audioPlugin.pause().then((String res) {
       print('audio.pause -> $res');
       setState(() => playerState = PlayerState.paused);
     });
   }
 
   void stop() {
-    FlutterAudiostream.stop().then((String res) {
+    audioPlugin.stop().then((String res) {
       print('audio.stop -> $res');
       setState(() {
         playerState = PlayerState.stopped;
@@ -119,11 +124,15 @@ class _AudioAppState extends State<AudioApp> {
 
   Future<dynamic> _handleAudioPlatformCalls(MethodCall methodCall) async {
     final String method = methodCall.method;
+    print('_AudioAppState._handleAudioPlatformCalls... ${methodCall.method}');
 
     switch (method) {
-      case 'audio.duration':
+      case 'audio.onDuration':
+        print(
+            '_AudioAppState._handleAudioPlatformCalls '
+              '-> duration ${methodCall.arguments.toString()} ');
         setState(() {
-          duration = new Duration(milliseconds: methodCall.arguments);
+          duration = new Duration(milliseconds: (methodCall.arguments as double).round());
         });
         break;
 
@@ -134,9 +143,21 @@ class _AudioAppState extends State<AudioApp> {
         });
         break;
 
-      case 'audio.onCurrentPosition':
+      case 'audio.onError':
+        print('_AudioAppState._handleAudioPlatformCalls -> audio.error ');
         setState(() {
-          position = new Duration(milliseconds: methodCall.arguments);
+          playerState = PlayerState.stopped;
+          duration = new Duration(seconds: 0);
+          position = null;
+        });
+        break;
+
+      case 'audio.onCurrentPosition':
+        print(
+          '_AudioAppState._handleAudioPlatformCalls '
+            '-> position ${methodCall.arguments.toString()} ');
+        setState(() {
+          position = new Duration(milliseconds: (methodCall.arguments as double).round());
         });
         break;
 

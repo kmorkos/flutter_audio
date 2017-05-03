@@ -4,12 +4,12 @@ PODS:
     - Flutter
 
 DEPENDENCIES:
-  - Flutter (from `/Users/rxlabz/dev/tools/flutter/bin/cache/artifacts/engine/ios-release`)
+  - Flutter (from `/Users/rxlabz/dev/tools/flutter/bin/cache/artifacts/engine/ios`)
   - flutter_audiostream (from `/Users/rxlabz/dev/labz/flutter/noob-labz/flutter_audiostream/ios`)
 
 EXTERNAL SOURCES:
   Flutter:
-    :path: /Users/rxlabz/dev/tools/flutter/bin/cache/artifacts/engine/ios-release
+    :path: /Users/rxlabz/dev/tools/flutter/bin/cache/artifacts/engine/ios
   flutter_audiostream:
     :path: /Users/rxlabz/dev/labz/flutter/noob-labz/flutter_audiostream/ios
 
