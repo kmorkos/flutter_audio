@@ -43,8 +43,6 @@ public class FlutterAudiostreamPlugin implements MethodCallHandler {
     } else if (call.method.equals("stop")) {
       stop();
       response.success("flutter_audio.stopped");
-    } else if (call.method.equals("getPlatformVersion")) {
-      response.success("Android : " + android.os.Build.VERSION.RELEASE);
     } else {
       response.notImplemented();
     }
@@ -82,7 +80,7 @@ public class FlutterAudiostreamPlugin implements MethodCallHandler {
       }
     }
 
-    channel.invokeMethod("audio.duration", mediaPlayer.getDuration());
+    channel.invokeMethod("audio.onDuration", mediaPlayer.getDuration());
 
     mediaPlayer.start();
 

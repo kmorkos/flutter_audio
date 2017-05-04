@@ -99,7 +99,7 @@ class _AudioAppState extends State<AudioApp> {
   }
 
   void play() {
-    audioPlugin.play(kUrl2).then((String res) {
+    audioPlugin.play(kUrl).then((String res) {
       print('audio.play -> $res');
       setState(() => playerState = PlayerState.playing);
     });
