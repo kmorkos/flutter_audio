@@ -51,7 +51,7 @@ class _AudioAppState extends State<AudioApp> {
   Widget build(BuildContext context) {
     return new Center(
         child: new Material(
-            elevation: 2,
+            elevation: 2.0,
             color: Colors.grey[200],
             child: new Container(
                 padding: new EdgeInsets.all(16.0),
