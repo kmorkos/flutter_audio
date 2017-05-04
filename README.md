@@ -67,9 +67,13 @@ void stop() {
 ### duration, position, complete, error (temporary api) 
 
 ```dart
+//...
+
+audioPlugin.setPlaformCallsHandler(_handleAudioPlatformCalls);
+
+// ...
 Future<dynamic> _handleAudioPlatformCalls(MethodCall methodCall) async {
   final String method = methodCall.method;
-  print('_AudioAppState._handleAudioPlatformCalls... ${methodCall.method}');
   
   switch (method) {
     case 'audio.onDuration':
