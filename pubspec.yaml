@@ -1,6 +1,6 @@
 name: flutter_audiostream
 version: 0.0.2
-description: A flutter plugin to play audio file
+description: A flutter plugin to play audio files
 author: Erick Ghaumez <contact@rxlabz.com>
 
 flutter:

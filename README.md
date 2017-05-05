@@ -68,45 +68,29 @@ The dart part of the plugin listen for platform calls :
 
 ```dart
 //...
+audioPlayer.setDurationHandler((d) => setState(() {
+  duration = d;
+}));
 
-audioPlugin.setPlaformCallsHandler(_handleAudioPlatformCalls);
+audioPlayer.setPositionHandler((p) => setState(() {
+  position = p;
+}));
 
-// ...
-Future<dynamic> _handleAudioPlatformCalls(MethodCall methodCall) async {
-  final String method = methodCall.method;
-  
-  switch (method) {
-    case 'audio.onDuration':
-      setState(() {
-        duration = new Duration(milliseconds: (methodCall.arguments as double).round());
-      });
-      break;
-  
-    case 'audio.onComplete':
-      onComplete();
-      setState(() {
-        position = duration;
-      });
-      break;
-  
-    case 'audio.onError':
-      setState(() {
-        playerState = PlayerState.stopped;
-        duration = new Duration(seconds: 0);
-        position = null;
-      });
-      break;
-  
-    case 'audio.onCurrentPosition':
-      setState(() {
-        position = new Duration(milliseconds: (methodCall.arguments as double).round());
-      });
-      break;
-  
-    default:
-      throw new MissingPluginException();
-  }
-}
+audioPlayer.setCompletionHandler(() {
+  onComplete();
+  setState(() {
+    position = duration;
+  });
+});
+
+audioPlayer.setErrorHandler((msg) {
+  print('audioPlayer error : $msg');
+  setState(() {
+    playerState = PlayerState.stopped;
+    duration = new Duration(seconds: 0);
+    position = new Duration(seconds: 0);
+  });
+});
 ```
 
 ## iOS

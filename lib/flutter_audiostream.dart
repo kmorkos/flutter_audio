@@ -6,7 +6,7 @@ import 'package:flutter/services.dart';
 typedef void TimeChangeHandler(Duration duration);
 typedef void ErrorHandler(String message);
 
-class FlutterAudiostream extends ChangeNotifier{
+class FlutterAudiostream extends ChangeNotifier {
   static const MethodChannel _channel =
       const MethodChannel('flutter.rxla.bz/audio');
 
@@ -28,53 +28,48 @@ class FlutterAudiostream extends ChangeNotifier{
 
   Future<int> stop() => _channel.invokeMethod('stop');
 
-  void setDurationHandler(TimeChangeHandler handler){
+  void setDurationHandler(TimeChangeHandler handler) {
     durationHandler = handler;
   }
-  void setPositionHandler(TimeChangeHandler handler){
+
+  void setPositionHandler(TimeChangeHandler handler) {
     positionHandler = handler;
   }
-  void setCompletionHandler(VoidCallback callback){
+
+  void setCompletionHandler(VoidCallback callback) {
     completionHandler = callback;
   }
-  void setErrorHandler(ErrorHandler handler){
+
+  void setErrorHandler(ErrorHandler handler) {
     errorHandler = handler;
   }
 
   Future _platformCallHandler(MethodCall call) async {
     switch (call.method) {
       case "audio.onDuration":
-        final duration = new Duration(milliseconds: call.arguments );
-        //durationNotifier.value = duration;
+        final duration = new Duration(milliseconds: call.arguments);
         if (durationHandler != null) {
-          print('FlutterAudiostream._platformCallHandler... '
-              '-> onduration : ${call.arguments.toString()}');
           durationHandler(duration);
         }
+        //durationNotifier.value = duration;
         break;
       case "audio.onCurrentPosition":
         if (positionHandler != null) {
-          print('FlutterAudiostream._platformCallHandler... '
-              '-> onCurrentPosition : ${call.arguments.toString()}');
-          positionHandler(
-              new Duration(milliseconds: call.arguments ));
+          positionHandler(new Duration(milliseconds: call.arguments));
         }
         break;
       case "audio.onComplete":
-        if (durationHandler != null) {
-          print('FlutterAudiostream._platformCallHandler... -> onComplete ');
+        if (completionHandler != null) {
           completionHandler();
         }
         break;
       case "audio.onError":
-        if (durationHandler != null) {
-          print(
-              'FlutterAudiostream._platformCallHandler... -> onError ${call.arguments.toString()}');
+        if (errorHandler != null) {
+          errorHandler(call.arguments);
         }
         break;
       default:
         print('Unknowm method ${call.method} ');
     }
   }
-
 }

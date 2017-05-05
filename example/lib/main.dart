@@ -42,22 +42,22 @@ class _AudioAppState extends State<AudioApp> {
   void initAudioPlayer() {
     audioPlayer = new FlutterAudiostream();
 
-    audioPlayer.setDurationHandler((d)=>setState(() {
-      duration = d;
-    }));
+    audioPlayer.setDurationHandler((d) => setState(() {
+          duration = d;
+        }));
 
-    audioPlayer.setPositionHandler((p)=>setState(() {
-      position = p;
-    }));
+    audioPlayer.setPositionHandler((p) => setState(() {
+          position = p;
+        }));
 
-    audioPlayer.setCompletionHandler((){
+    audioPlayer.setCompletionHandler(() {
       onComplete();
       setState(() {
         position = duration;
       });
     });
 
-    audioPlayer.setErrorHandler((msg){
+    audioPlayer.setErrorHandler((msg) {
       print('audioPlayer error : $msg');
       setState(() {
         playerState = PlayerState.stopped;
@@ -147,5 +147,4 @@ class _AudioAppState extends State<AudioApp> {
                   ])
                 ]))));
   }
-
 }
