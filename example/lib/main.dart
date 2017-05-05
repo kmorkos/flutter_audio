@@ -1,7 +1,6 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_audiostream/flutter_audiostream.dart';
 
 const kUrl = "http://www.rxlabz.com/labz/audio2.mp3";
@@ -22,7 +21,7 @@ class _AudioAppState extends State<AudioApp> {
   Duration duration;
   Duration position;
 
-  FlutterAudiostream audioPlugin;
+  FlutterAudiostream audioPlayer;
 
   PlayerState playerState = PlayerState.stopped;
 
@@ -37,14 +36,64 @@ class _AudioAppState extends State<AudioApp> {
   @override
   void initState() {
     super.initState();
-    audioPlugin = new FlutterAudiostream();
-    audioPlugin.setPlaformCallsHandler(_handleAudioPlatformCalls);
+    initAudioPlayer();
+  }
+
+  void initAudioPlayer() {
+    audioPlayer = new FlutterAudiostream();
+
+    audioPlayer.setDurationHandler((d)=>setState(() {
+      duration = d;
+    }));
+
+    audioPlayer.setPositionHandler((p)=>setState(() {
+      position = p;
+    }));
+
+    audioPlayer.setCompletionHandler((){
+      onComplete();
+      setState(() {
+        position = duration;
+      });
+    });
+
+    audioPlayer.setErrorHandler((msg){
+      print('audioPlayer error : $msg');
+      setState(() {
+        playerState = PlayerState.stopped;
+        duration = new Duration(seconds: 0);
+        position = new Duration(seconds: 0);
+      });
+    });
+  }
+
+  Future play() async {
+    final result = await audioPlayer.play(kUrl);
+    if (result == 1) setState(() => playerState = PlayerState.playing);
+  }
+
+  Future pause() async {
+    final result = await audioPlayer.pause();
+    if (result == 1) setState(() => playerState = PlayerState.paused);
+  }
+
+  Future stop() async {
+    final result = await audioPlayer.stop();
+    if (result == 1)
+      setState(() {
+        playerState = PlayerState.stopped;
+        position = new Duration();
+      });
+  }
+
+  void onComplete() {
+    setState(() => playerState = PlayerState.stopped);
   }
 
   @override
   void dispose() {
     super.dispose();
-    audioPlugin.stop();
+    audioPlayer.stop();
   }
 
   @override
@@ -82,10 +131,11 @@ class _AudioAppState extends State<AudioApp> {
                               valueColor:
                                   new AlwaysStoppedAnimation(Colors.grey[300])),
                           new CircularProgressIndicator(
-                            value: position != null && position.inMilliseconds > 0
-                                ? position.inMilliseconds /
-                                    duration.inMilliseconds
-                                : 0.0,
+                            value:
+                                position != null && position.inMilliseconds > 0
+                                    ? position.inMilliseconds /
+                                        duration.inMilliseconds
+                                    : 0.0,
                             valueColor: new AlwaysStoppedAnimation(Colors.cyan),
                           ),
                         ])),
@@ -98,75 +148,4 @@ class _AudioAppState extends State<AudioApp> {
                 ]))));
   }
 
-  void play() {
-    audioPlugin.play(kUrl).then((String res) {
-      print('audio.play -> $res');
-      setState(() => playerState = PlayerState.playing);
-    });
-  }
-
-  void pause() {
-    audioPlugin.pause().then((String res) {
-      print('audio.pause -> $res');
-      setState(() => playerState = PlayerState.paused);
-    });
-  }
-
-  void stop() {
-    audioPlugin.stop().then((String res) {
-      print('audio.stop -> $res');
-      setState(() {
-        playerState = PlayerState.stopped;
-        position = null;
-      });
-    });
-  }
-
-  Future<dynamic> _handleAudioPlatformCalls(MethodCall methodCall) async {
-    final String method = methodCall.method;
-    print('_AudioAppState._handleAudioPlatformCalls... ${methodCall.method}');
-
-    switch (method) {
-      case 'audio.onDuration':
-        print(
-            '_AudioAppState._handleAudioPlatformCalls '
-              '-> duration ${methodCall.arguments.toString()} ');
-        setState(() {
-          duration = new Duration(milliseconds: (methodCall.arguments as double).round());
-        });
-        break;
-
-      case 'audio.onComplete':
-        onComplete();
-        setState(() {
-          position = duration;
-        });
-        break;
-
-      case 'audio.onError':
-        print('_AudioAppState._handleAudioPlatformCalls -> audio.error ');
-        setState(() {
-          playerState = PlayerState.stopped;
-          duration = new Duration(seconds: 0);
-          position = null;
-        });
-        break;
-
-      case 'audio.onCurrentPosition':
-        print(
-          '_AudioAppState._handleAudioPlatformCalls '
-            '-> position ${methodCall.arguments.toString()} ');
-        setState(() {
-          position = new Duration(milliseconds: (methodCall.arguments as double).round());
-        });
-        break;
-
-      default:
-        throw new MissingPluginException();
-    }
-  }
-
-  void onComplete() {
-    setState(() => playerState = PlayerState.stopped);
-  }
 }

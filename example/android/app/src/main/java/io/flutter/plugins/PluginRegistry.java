@@ -2,7 +2,7 @@ package io.flutter.plugins;
 
 import io.flutter.app.FlutterActivity;
 
-import com.yourcompany.flutter_audiostream.FlutterAudiostreamPlugin;
+import bz.rxla.flutter_audiostream.FlutterAudiostreamPlugin;
 
 /**
  * Generated file. Do not edit.

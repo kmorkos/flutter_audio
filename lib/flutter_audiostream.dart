@@ -1,59 +1,80 @@
 import 'dart:async';
 
+import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
 
-typedef void DurationHandler(Duration duration);
+typedef void TimeChangeHandler(Duration duration);
+typedef void ErrorHandler(String message);
 
-class FlutterAudiostream {
+class FlutterAudiostream extends ChangeNotifier{
   static const MethodChannel _channel =
-  const MethodChannel('flutter.rxla.bz/audio');
+      const MethodChannel('flutter.rxla.bz/audio');
 
+  TimeChangeHandler durationHandler;
+  TimeChangeHandler positionHandler;
+  VoidCallback completionHandler;
+  ErrorHandler errorHandler;
 
-  FlutterAudiostream(){
+  //ValueNotifier<Duration> durationNotifier;
+
+  FlutterAudiostream() {
     _channel.setMethodCallHandler(_platformCallHandler);
+    //durationNotifier = new ValueNotifier(new Duration());
   }
 
-  Future<String> play(String url) =>
-    _channel.invokeMethod('play', url);
+  Future<int> play(String url) => _channel.invokeMethod('play', url);
 
-  Future<String> pause() =>
-    _channel.invokeMethod('pause');
+  Future<int> pause() => _channel.invokeMethod('pause');
 
-  Future<String> stop() =>
-    _channel.invokeMethod('stop');
+  Future<int> stop() => _channel.invokeMethod('stop');
 
-  void setPlaformCallsHandler(handler) {
-    _channel.setMethodCallHandler(handler);
+  void setDurationHandler(TimeChangeHandler handler){
+    durationHandler = handler;
   }
-
-  DurationHandler durationHandler;
-  /*
-  DurationHandler durationHandler;*/
+  void setPositionHandler(TimeChangeHandler handler){
+    positionHandler = handler;
+  }
+  void setCompletionHandler(VoidCallback callback){
+    completionHandler = callback;
+  }
+  void setErrorHandler(ErrorHandler handler){
+    errorHandler = handler;
+  }
 
   Future _platformCallHandler(MethodCall call) async {
-    switch(call.method){
+    switch (call.method) {
       case "audio.onDuration":
-        if(durationHandler != null){
-          print('FlutterAudiostream._platformCallHandler... -> onDuration : ${call.arguments.toString()}');
+        final duration = new Duration(milliseconds: call.arguments );
+        //durationNotifier.value = duration;
+        if (durationHandler != null) {
+          print('FlutterAudiostream._platformCallHandler... '
+              '-> onduration : ${call.arguments.toString()}');
+          durationHandler(duration);
         }
         break;
       case "audio.onCurrentPosition":
-        if(durationHandler != null){
-          print('FlutterAudiostream._platformCallHandler... -> onCurrentPosition : ${call.arguments.toString()}');
+        if (positionHandler != null) {
+          print('FlutterAudiostream._platformCallHandler... '
+              '-> onCurrentPosition : ${call.arguments.toString()}');
+          positionHandler(
+              new Duration(milliseconds: call.arguments ));
         }
         break;
       case "audio.onComplete":
-        if(durationHandler != null){
+        if (durationHandler != null) {
           print('FlutterAudiostream._platformCallHandler... -> onComplete ');
+          completionHandler();
         }
         break;
       case "audio.onError":
-        if(durationHandler != null){
-          print('FlutterAudiostream._platformCallHandler... -> onError ');
+        if (durationHandler != null) {
+          print(
+              'FlutterAudiostream._platformCallHandler... -> onError ${call.arguments.toString()}');
         }
         break;
       default:
         print('Unknowm method ${call.method} ');
     }
   }
+
 }

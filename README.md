@@ -41,30 +41,30 @@ FlutterAudiostream audioPlugin = new FlutterAudiostream();
 ### play, pause , stop
 
 ```dart
-void play() {
-  audioPlugin.play(kUrl).then((String res) {
-    setState(() => playerState = PlayerState.playing);
-  });
+Future play() async {
+  final result = await audioPlayer.play(kUrl);
+  if (result == 1) setState(() => playerState = PlayerState.playing);
+}
+  
+Future pause() async {
+  final result = await audioPlayer.pause();
+  if (result == 1) setState(() => playerState = PlayerState.paused);
 }
 
-void pause() {
-  audioPlugin.pause().then((String res) {
-    setState(() => playerState = PlayerState.paused);
-  });
-}
-
-void stop() {
-  audioPlugin.stop().then((String res) {
+Future stop() async {
+  final result = await audioPlayer.stop();
+  if (result == 1)
     setState(() {
-      playerState = PlayerState.stopped;
-      position = null;
-    });
+    playerState = PlayerState.stopped;
+    position = new Duration();
   });
 }
 
 ```
 
 ### duration, position, complete, error (temporary api) 
+
+The dart part of the plugin listen for platform calls :
 
 ```dart
 //...
