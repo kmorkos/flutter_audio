@@ -1,5 +1,7 @@
 # flutter audiostream plugin
 
+:warning: this plugin is not working with the last plugin API update. For now I'm not able to make this works...
+
 Experimental Flutter audio plugin. 
  
 ## Features
