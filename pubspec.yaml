@@ -1,12 +1,10 @@
-name: flutter_audiostream
-version: 0.0.2
-description: A flutter plugin to play audio files
-author: Erick Ghaumez <contact@rxlabz.com>
+name: audioplayer
+description: A new flutter plugin project.
 
 flutter:
   plugin:
-    androidPackage: bz.rxla.flutter_audiostream
-    pluginClass: FlutterAudiostreamPlugin
+    androidPackage: bz.rxla.audioplayer
+    pluginClass: AudioplayerPlugin
 
 dependencies:
   flutter:

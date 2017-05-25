@@ -1,10 +1,10 @@
-name: flutter_audiostream_example
-description: Demonstrates how to use the flutter_audiostream plugin.
+name: audioplayer_example
+description: Demonstrates how to use the audioplayer plugin.
 
 dependencies:
   flutter:
     sdk: flutter
-  flutter_audiostream:
+  audioplayer:
     path: ../
 
 # For information on the generic Dart part of this file, see the

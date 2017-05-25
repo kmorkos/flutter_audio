@@ -32,7 +32,7 @@ This application makes use of the following third party libraries:
 // OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 
-## flutter_audiostream
+## audioplayer
 
 // Copyright 2017 Your Company. All rights reserved.
 //

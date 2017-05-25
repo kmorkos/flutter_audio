@@ -80,7 +80,7 @@
 // OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 </string>
 			<key>Title</key>
-			<string>flutter_audiostream</string>
+			<string>audioplayer</string>
 			<key>Type</key>
 			<string>PSGroupSpecifier</string>
 		</dict>

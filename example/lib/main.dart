@@ -1,7 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_audiostream/flutter_audiostream.dart';
+import 'package:audioplayer/audioplayer.dart';
 
 const kUrl = "http://www.rxlabz.com/labz/audio2.mp3";
 const kUrl2 = "http://www.rxlabz.com/labz/audio.mp3";
@@ -21,7 +21,7 @@ class _AudioAppState extends State<AudioApp> {
   Duration duration;
   Duration position;
 
-  FlutterAudiostream audioPlayer;
+  AudioPlayer audioPlayer;
 
   PlayerState playerState = PlayerState.stopped;
 
@@ -29,9 +29,9 @@ class _AudioAppState extends State<AudioApp> {
   get isPaused => playerState == PlayerState.paused;
 
   get durationText =>
-      duration != null ? duration.toString().split('.').first : '';
+    duration != null ? duration.toString().split('.').first : '';
   get positionText =>
-      position != null ? position.toString().split('.').first : '';
+    position != null ? position.toString().split('.').first : '';
 
   @override
   void initState() {
@@ -40,15 +40,17 @@ class _AudioAppState extends State<AudioApp> {
   }
 
   void initAudioPlayer() {
-    audioPlayer = new FlutterAudiostream();
+    audioPlayer = new AudioPlayer();
 
     audioPlayer.setDurationHandler((d) => setState(() {
-          duration = d;
-        }));
+      print('_AudioAppState.initAudioPlayer => d ${d}');
+      duration = d;
+    }));
 
     audioPlayer.setPositionHandler((p) => setState(() {
-          position = p;
-        }));
+      print('_AudioAppState.initAudioPlayer => p ${p}');
+      position = p;
+    }));
 
     audioPlayer.setCompletionHandler(() {
       onComplete();
@@ -99,52 +101,52 @@ class _AudioAppState extends State<AudioApp> {
   @override
   Widget build(BuildContext context) {
     return new Center(
-        child: new Material(
-            elevation: 2.0,
-            color: Colors.grey[200],
-            child: new Container(
-                padding: new EdgeInsets.all(16.0),
-                child: new Column(mainAxisSize: MainAxisSize.min, children: [
-                  new Row(mainAxisSize: MainAxisSize.min, children: [
-                    new IconButton(
-                        onPressed: isPlaying ? null : () => play(),
-                        iconSize: 64.0,
-                        icon: new Icon(Icons.play_arrow),
-                        color: Colors.cyan),
-                    new IconButton(
-                        onPressed: isPlaying ? () => pause() : null,
-                        iconSize: 64.0,
-                        icon: new Icon(Icons.pause),
-                        color: Colors.cyan),
-                    new IconButton(
-                        onPressed: isPlaying || isPaused ? () => stop() : null,
-                        iconSize: 64.0,
-                        icon: new Icon(Icons.stop),
-                        color: Colors.cyan),
-                  ]),
-                  new Row(mainAxisSize: MainAxisSize.min, children: [
-                    new Padding(
-                        padding: new EdgeInsets.all(12.0),
-                        child: new Stack(children: [
-                          new CircularProgressIndicator(
-                              value: 1.0,
-                              valueColor:
-                                  new AlwaysStoppedAnimation(Colors.grey[300])),
-                          new CircularProgressIndicator(
-                            value:
-                                position != null && position.inMilliseconds > 0
-                                    ? position.inMilliseconds /
-                                        duration.inMilliseconds
-                                    : 0.0,
-                            valueColor: new AlwaysStoppedAnimation(Colors.cyan),
-                          ),
-                        ])),
-                    new Text(
-                        position != null
-                            ? "${positionText ?? ''} / ${durationText ?? ''}"
-                            : duration != null ? durationText : '',
-                        style: new TextStyle(fontSize: 24.0))
-                  ])
-                ]))));
+      child: new Material(
+        elevation: 2.0,
+        color: Colors.grey[200],
+        child: new Container(
+          padding: new EdgeInsets.all(16.0),
+          child: new Column(mainAxisSize: MainAxisSize.min, children: [
+            new Row(mainAxisSize: MainAxisSize.min, children: [
+              new IconButton(
+                onPressed: isPlaying ? null : () => play(),
+                iconSize: 64.0,
+                icon: new Icon(Icons.play_arrow),
+                color: Colors.cyan),
+              new IconButton(
+                onPressed: isPlaying ? () => pause() : null,
+                iconSize: 64.0,
+                icon: new Icon(Icons.pause),
+                color: Colors.cyan),
+              new IconButton(
+                onPressed: isPlaying || isPaused ? () => stop() : null,
+                iconSize: 64.0,
+                icon: new Icon(Icons.stop),
+                color: Colors.cyan),
+            ]),
+            new Row(mainAxisSize: MainAxisSize.min, children: [
+              new Padding(
+                padding: new EdgeInsets.all(12.0),
+                child: new Stack(children: [
+                  new CircularProgressIndicator(
+                    value: 1.0,
+                    valueColor:
+                    new AlwaysStoppedAnimation(Colors.grey[300])),
+                  new CircularProgressIndicator(
+                    value:
+                    position != null && position.inMilliseconds > 0
+                      ? position.inMilliseconds /
+                      duration.inMilliseconds
+                      : 0.0,
+                    valueColor: new AlwaysStoppedAnimation(Colors.cyan),
+                  ),
+                ])),
+              new Text(
+                position != null
+                  ? "${positionText ?? ''} / ${durationText ?? ''}"
+                  : duration != null ? durationText : '',
+                style: new TextStyle(fontSize: 24.0))
+            ])
+          ]))));
   }
 }
