@@ -26,15 +26,14 @@ To use this plugin :
   dependencies:
     flutter:
       sdk: flutter
-    flutter_audiostream:
-      path: /absolute/or/relative/path/flutter_audiostream
+    audioplayer:
 ```
 
-- instantiate a FlutterAudiostream instance
+- instantiate a AudioPlayer instance
 
 ```dart
 //...
-FlutterAudiostream audioPlugin = new FlutterAudiostream();
+AudioPlayer audioPlugin = new AudioPlayer();
 //...
 ```
 
@@ -97,14 +96,12 @@ audioPlayer.setErrorHandler((msg) {
    
 ### :warning: Swift project only
 
-As the iOS part of the plugin is written in Swift, you can, for now, 
-only use it within a [swift xcode project](https://flutter.io/platform-channels/#step-3c-add-an-ios-platform-specific-implementation-using-swift), 
-with a PluginRegistry.swift (not .h and .m).
+- :warning: this plugin is written in swift, so to use with in a Flutter/ObjC project, it seems to be needed to convert the project to "Current swift syntax" ( Edit/Convert/current swift syntax)  
 
-### :warning: Http url
+## :warning: iOS App Transport Security
 
-If you want to allow file from non https server you need to add this to your info.plist
-
+By default iOS forbids loading from non-https url. To cancel this restriction edit your .plist and add :
+ 
 ```xml
 <key>NSAppTransportSecurity</key>
 <dict>
