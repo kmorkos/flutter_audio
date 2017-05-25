@@ -7,12 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		01F68127E09735EF75CDF84F35AF6849 /* audioplayer-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EC33EDC613465345123F2F7FEA5EF0F /* audioplayer-dummy.m */; };
-		2327E90CF8B492B9A6CC21AA0FD2DC66 /* AudioplayerPlugin.h in Headers */ = {isa = PBXBuildFile; fileRef = 61E7BB2DC97FE847CBAC733C134E0EF0 /* AudioplayerPlugin.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		59793F4880BE204C73354EA4684D5087 /* AudioplayerPlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = CDC91D2C0FDEE51F8E4BDB05283A90BE /* AudioplayerPlugin.m */; };
+		01F68127E09735EF75CDF84F35AF6849 /* audioplayer-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = EBADB07CB8FEA826BF39D02A48630CD4 /* audioplayer-dummy.m */; };
+		2327E90CF8B492B9A6CC21AA0FD2DC66 /* AudioplayerPlugin.h in Headers */ = {isa = PBXBuildFile; fileRef = FE1FA17DB14F1A88B9198E53B7E20FC4 /* AudioplayerPlugin.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		59793F4880BE204C73354EA4684D5087 /* AudioplayerPlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CE5FE67348A9C6B0764E0572719F79C /* AudioplayerPlugin.m */; };
 		7F0603FA3454492E617C7E1AA0319C68 /* Pods-Runner-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E631AC9676BE84AEB52F7D6520E4684 /* Pods-Runner-dummy.m */; };
-		80EFED905434E24660CAC60B58B12974 /* SwiftAudioplayerPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 746B3BFF67890DF3143FC308076C794A /* SwiftAudioplayerPlugin.swift */; };
-		8F96B812F02607B01E5DF80B7484C62C /* audioplayer-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 9ED79A8D3F1A7B3B23DCC904F38F3E41 /* audioplayer-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		80EFED905434E24660CAC60B58B12974 /* SwiftAudioplayerPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9683233D3894809D39E2AEA67CD9504A /* SwiftAudioplayerPlugin.swift */; };
+		8F96B812F02607B01E5DF80B7484C62C /* audioplayer-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = B6FC8544002661CCDA887FA00AB7618F /* audioplayer-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A079182E9ACD76622CA31FFF73BC0A29 /* Pods-Runner-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 800A16960E73EBAF012C139238277358 /* Pods-Runner-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C74AD19B9BF6B7FFA87AE3A069A9A472 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBB3DE36805AF21409EC968A9691732F /* Foundation.framework */; };
 		ECEC22D75AB7D8D4360430CE324E3709 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBB3DE36805AF21409EC968A9691732F /* Foundation.framework */; };
@@ -29,30 +29,30 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		060CCF977483E52554FE925B2D054782 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1230911B0B1C1A5E00676A90606DE300 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1E631AC9676BE84AEB52F7D6520E4684 /* Pods-Runner-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Runner-dummy.m"; sourceTree = "<group>"; };
 		5590F7A1CFAF9FA252DA3DC7ABF5B059 /* audioplayer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = audioplayer.framework; path = audioplayer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5EB571A3ABC7BF67A4642C216D6F0E21 /* Pods-Runner-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Runner-resources.sh"; sourceTree = "<group>"; };
 		60BA499A645871628CFA2E5806E78269 /* Pods-Runner.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Runner.release.xcconfig"; sourceTree = "<group>"; };
-		61E7BB2DC97FE847CBAC733C134E0EF0 /* AudioplayerPlugin.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = AudioplayerPlugin.h; sourceTree = "<group>"; };
+		622B3AF7B4879EE41052E5DC2A301DF6 /* Flutter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Flutter.framework; sourceTree = "<group>"; };
 		63BC99522783D0218755FDE8464650E4 /* Pods-Runner.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Runner.debug.xcconfig"; sourceTree = "<group>"; };
-		6EC33EDC613465345123F2F7FEA5EF0F /* audioplayer-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "audioplayer-dummy.m"; sourceTree = "<group>"; };
-		738AF689F4D4DFF4B491AB81B37645F5 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		746B3BFF67890DF3143FC308076C794A /* SwiftAudioplayerPlugin.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SwiftAudioplayerPlugin.swift; sourceTree = "<group>"; };
+		6CE5FE67348A9C6B0764E0572719F79C /* AudioplayerPlugin.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = AudioplayerPlugin.m; sourceTree = "<group>"; };
+		71B5950C3D355119C30274ACF030AA1A /* audioplayer-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "audioplayer-prefix.pch"; sourceTree = "<group>"; };
+		7A917A35B8C73208F15AA73BD2D6C672 /* audioplayer.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = audioplayer.xcconfig; sourceTree = "<group>"; };
 		800A16960E73EBAF012C139238277358 /* Pods-Runner-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Runner-umbrella.h"; sourceTree = "<group>"; };
 		820303DDBFB04D47450E66B28FF32086 /* Pods-Runner-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Runner-acknowledgements.plist"; sourceTree = "<group>"; };
 		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9683233D3894809D39E2AEA67CD9504A /* SwiftAudioplayerPlugin.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SwiftAudioplayerPlugin.swift; sourceTree = "<group>"; };
 		97CA21C8E4F9C9021239E60E3BFF6818 /* Pods_Runner.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_Runner.framework; path = "Pods-Runner.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
-		9ED79A8D3F1A7B3B23DCC904F38F3E41 /* audioplayer-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "audioplayer-umbrella.h"; sourceTree = "<group>"; };
+		B6FC8544002661CCDA887FA00AB7618F /* audioplayer-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "audioplayer-umbrella.h"; sourceTree = "<group>"; };
 		B8331DA3DF79C3AB28033920E45C4B46 /* Pods-Runner-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Runner-frameworks.sh"; sourceTree = "<group>"; };
-		BB577DF4A745D25149CCC26853C46B29 /* Flutter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Flutter.framework; sourceTree = "<group>"; };
+		B8890C178499E75BC0149838684EB021 /* audioplayer.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = audioplayer.modulemap; sourceTree = "<group>"; };
 		BE191574A51A7A7D07FEEACB1323F4E5 /* Pods-Runner.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-Runner.modulemap"; sourceTree = "<group>"; };
 		CA0501A66E945611274FD9BED1573FA5 /* Pods-Runner-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Runner-acknowledgements.markdown"; sourceTree = "<group>"; };
 		CBB3DE36805AF21409EC968A9691732F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		CDC91D2C0FDEE51F8E4BDB05283A90BE /* AudioplayerPlugin.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = AudioplayerPlugin.m; sourceTree = "<group>"; };
-		D800B782A1DEB7DE90D1E83C4AD3BAA3 /* audioplayer-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "audioplayer-prefix.pch"; sourceTree = "<group>"; };
-		EC714246E105DADFC88FA02E273AD987 /* audioplayer.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = audioplayer.xcconfig; sourceTree = "<group>"; };
-		FB74EB7328CB77EBB68CD67D2C489E85 /* audioplayer.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = audioplayer.modulemap; sourceTree = "<group>"; };
+		EBADB07CB8FEA826BF39D02A48630CD4 /* audioplayer-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "audioplayer-dummy.m"; sourceTree = "<group>"; };
+		FE1FA17DB14F1A88B9198E53B7E20FC4 /* AudioplayerPlugin.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = AudioplayerPlugin.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +75,40 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		014837A0236A2698268471D82A93FCEB /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				FE1FA17DB14F1A88B9198E53B7E20FC4 /* AudioplayerPlugin.h */,
+				6CE5FE67348A9C6B0764E0572719F79C /* AudioplayerPlugin.m */,
+				9683233D3894809D39E2AEA67CD9504A /* SwiftAudioplayerPlugin.swift */,
+			);
+			name = Classes;
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		0BD8DC76D9A102C3932639AB379BF714 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				B8890C178499E75BC0149838684EB021 /* audioplayer.modulemap */,
+				7A917A35B8C73208F15AA73BD2D6C672 /* audioplayer.xcconfig */,
+				EBADB07CB8FEA826BF39D02A48630CD4 /* audioplayer-dummy.m */,
+				71B5950C3D355119C30274ACF030AA1A /* audioplayer-prefix.pch */,
+				B6FC8544002661CCDA887FA00AB7618F /* audioplayer-umbrella.h */,
+				060CCF977483E52554FE925B2D054782 /* Info.plist */,
+			);
+			name = "Support Files";
+			path = "../example/ios/Pods/Target Support Files/audioplayer";
+			sourceTree = "<group>";
+		};
+		1D3E297E8A07E1A60B918E2D0B77BC75 /* Development Pods */ = {
+			isa = PBXGroup;
+			children = (
+				C7B80BFC695B7557DB5603A92D974055 /* audioplayer */,
+				3C877A8BF1476B832EC0F048BEC3E1D9 /* Flutter */,
+			);
+			name = "Development Pods";
+			sourceTree = "<group>";
+		};
 		3414695C0D92AE5B7E93D0AF65C4F185 /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -83,6 +117,15 @@
 			);
 			name = Products;
 			sourceTree = "<group>";
+		};
+		3C877A8BF1476B832EC0F048BEC3E1D9 /* Flutter */ = {
+			isa = PBXGroup;
+			children = (
+				FC3120D0BF76DE6A77D220CEB0AC3E07 /* Frameworks */,
+			);
+			name = Flutter;
+			path = /Users/rxlabz/dev/tools/flutter/bin/cache/artifacts/engine/ios;
+			sourceTree = "<absolute>";
 		};
 		7531C8F8DE19F1AA3C8A7AC97A91DC29 /* iOS */ = {
 			isa = PBXGroup;
@@ -96,7 +139,7 @@
 			isa = PBXGroup;
 			children = (
 				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
-				D22EDA583E082ABEC5F73FB338F91DA3 /* Development Pods */,
+				1D3E297E8A07E1A60B918E2D0B77BC75 /* Development Pods */,
 				BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */,
 				3414695C0D92AE5B7E93D0AF65C4F185 /* Products */,
 				B88D6092221BFC46BA797811AC7C0DEC /* Targets Support Files */,
@@ -111,20 +154,6 @@
 			name = "Targets Support Files";
 			sourceTree = "<group>";
 		};
-		BB0ADD947EC62B2E51994F1AE01BB475 /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				FB74EB7328CB77EBB68CD67D2C489E85 /* audioplayer.modulemap */,
-				EC714246E105DADFC88FA02E273AD987 /* audioplayer.xcconfig */,
-				6EC33EDC613465345123F2F7FEA5EF0F /* audioplayer-dummy.m */,
-				D800B782A1DEB7DE90D1E83C4AD3BAA3 /* audioplayer-prefix.pch */,
-				9ED79A8D3F1A7B3B23DCC904F38F3E41 /* audioplayer-umbrella.h */,
-				738AF689F4D4DFF4B491AB81B37645F5 /* Info.plist */,
-			);
-			name = "Support Files";
-			path = "../example/ios/Pods/Target Support Files/audioplayer";
-			sourceTree = "<group>";
-		};
 		BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -133,25 +162,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		CB8311AA03CFA3B2E49CD8D0BCC09A50 /* Classes */ = {
+		C7B80BFC695B7557DB5603A92D974055 /* audioplayer */ = {
 			isa = PBXGroup;
 			children = (
-				61E7BB2DC97FE847CBAC733C134E0EF0 /* AudioplayerPlugin.h */,
-				CDC91D2C0FDEE51F8E4BDB05283A90BE /* AudioplayerPlugin.m */,
-				746B3BFF67890DF3143FC308076C794A /* SwiftAudioplayerPlugin.swift */,
+				014837A0236A2698268471D82A93FCEB /* Classes */,
+				0BD8DC76D9A102C3932639AB379BF714 /* Support Files */,
 			);
-			name = Classes;
-			path = Classes;
-			sourceTree = "<group>";
-		};
-		D22EDA583E082ABEC5F73FB338F91DA3 /* Development Pods */ = {
-			isa = PBXGroup;
-			children = (
-				FE300C440A0E0383E3FE3402FD1579FF /* audioplayer */,
-				EEA060D3D01F8DD6A625A172B1A9C2AD /* Flutter */,
-			);
-			name = "Development Pods";
-			sourceTree = "<group>";
+			name = audioplayer;
+			path = /Users/rxlabz/dev/projects/fluttrx_plugins/flutter_audioplayer/ios;
+			sourceTree = "<absolute>";
 		};
 		ECC1486D1F14EC5BA692C079D9D06161 /* Pods-Runner */ = {
 			isa = PBXGroup;
@@ -171,32 +190,13 @@
 			path = "Target Support Files/Pods-Runner";
 			sourceTree = "<group>";
 		};
-		EEA060D3D01F8DD6A625A172B1A9C2AD /* Flutter */ = {
+		FC3120D0BF76DE6A77D220CEB0AC3E07 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				F90D2FDFFD9E81393D87FE174B02F9C0 /* Frameworks */,
-			);
-			name = Flutter;
-			path = /Users/rxlabz/dev/tools/flutter/bin/cache/artifacts/engine/ios;
-			sourceTree = "<absolute>";
-		};
-		F90D2FDFFD9E81393D87FE174B02F9C0 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				BB577DF4A745D25149CCC26853C46B29 /* Flutter.framework */,
+				622B3AF7B4879EE41052E5DC2A301DF6 /* Flutter.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
-		};
-		FE300C440A0E0383E3FE3402FD1579FF /* audioplayer */ = {
-			isa = PBXGroup;
-			children = (
-				CB8311AA03CFA3B2E49CD8D0BCC09A50 /* Classes */,
-				BB0ADD947EC62B2E51994F1AE01BB475 /* Support Files */,
-			);
-			name = audioplayer;
-			path = /Users/rxlabz/dev/projects/fluttrx_plugins/updates/audioplayer/ios;
-			sourceTree = "<absolute>";
 		};
 /* End PBXGroup section */
 
@@ -360,7 +360,7 @@
 		};
 		058B8349815C0016E1B2711DE620D871 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = EC714246E105DADFC88FA02E273AD987 /* audioplayer.xcconfig */;
+			baseConfigurationReference = 7A917A35B8C73208F15AA73BD2D6C672 /* audioplayer.xcconfig */;
 			buildSettings = {
 				ARCHS = arm64;
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -509,7 +509,7 @@
 		};
 		A0F466602CBF7827E9EDCA635517AFE4 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = EC714246E105DADFC88FA02E273AD987 /* audioplayer.xcconfig */;
+			baseConfigurationReference = 7A917A35B8C73208F15AA73BD2D6C672 /* audioplayer.xcconfig */;
 			buildSettings = {
 				ARCHS = arm64;
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
